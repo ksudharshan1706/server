@@ -8,7 +8,7 @@ const authenticate = require("../middleware/authenticate");
 
 router.post("/register", async (req, res) => {
   const { fname, email, password, cpassword } = req.body;
-
+  console.log(req.body);
   if (!fname || !email || !password || !cpassword) {
     res.status(422).json({ error: "fill all the details" });
   }
@@ -39,7 +39,7 @@ router.post("/register", async (req, res) => {
     }
   } catch (error) {
     res.status(422).json(error);
-    console.log("catch block error");
+    console.log("catch block error", error);
   }
 });
 
